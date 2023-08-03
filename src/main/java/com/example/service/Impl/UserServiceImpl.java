@@ -13,10 +13,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//UserService的实现类
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Autowired
     private UserMapper userMapper;
+    //按需查询
     @Override
     public PageBean listSome(SelectBean selectBean) {
         PageHelper.startPage(selectBean.getPageNum(),selectBean.getPageSize());
@@ -25,7 +27,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         PageBean pageBean = new PageBean(p.getTotal(),p.getResult());
         return pageBean;
     }
-
+    //分页查询
     @Override
     public PageBean dividePage(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum,pageSize);

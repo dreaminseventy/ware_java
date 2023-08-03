@@ -8,11 +8,13 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
+//mapper接口
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
-
+    //数据过多使用xml配置（按需查询）
     List<User> listSome(SelectBean selectBean);
 
+    //分页查询
     @Select("select * from user")
     List<User> list();
 }

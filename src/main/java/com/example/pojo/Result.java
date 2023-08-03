@@ -2,6 +2,7 @@ package com.example.pojo;
 
 import lombok.Data;
 
+//最终返回给前端的结果类
 @Data
 public class Result {
     private  int code;//编码

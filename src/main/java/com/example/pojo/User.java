@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//主要的User类
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

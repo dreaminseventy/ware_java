@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//按需查询类（包含分页的一部分）
 @Data
 public class SelectBean {
     static private int page_Num = 1;

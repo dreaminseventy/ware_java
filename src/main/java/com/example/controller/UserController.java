@@ -22,6 +22,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //返回所有数据(不分页)
     @GetMapping("/list")
     public Result list(){
         return Result.success(userService.list());
@@ -52,7 +53,6 @@ public class UserController {
     }
 
     //通过账号来查询
-
     @GetMapping("/findByAccount")
     public Result findByAccount(@RequestParam String account){
        List<User> list =  userService.lambdaQuery().eq(User::getAccount,account).list();
@@ -68,6 +68,7 @@ public class UserController {
         return Result.success(userService.list(lambdaQueryWrapper));
     }
 
+    //分页按需查询(只包含account，sex，name)
     @PostMapping("/list1")
     public Result list1(@RequestBody SelectBean selectBean){
         PageBean pageBean = userService.listSome(selectBean);
