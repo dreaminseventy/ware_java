@@ -59,7 +59,17 @@ public class UserController {
        return list.size()>0?Result.success(list):Result.fail();
     }
 
-    //查询（模糊匹配）
+    //登录
+    @PostMapping("/login")
+    public Result login(@RequestBody User user){
+        List<User> list = userService.lambdaQuery()
+                .eq(User::getAccount,user.getAccount())
+                .eq(User::getPassword,user.getPassword())
+                .list();
+        return list.size()>0?Result.success(list.get(0)):Result.fail();
+    }
+
+    //查询（模糊匹配未使用）
     @PostMapping("listAll")
     public  Result listAll(@RequestBody User user){
         LambdaQueryWrapper<User> lambdaQueryWrapper = new LambdaQueryWrapper();
