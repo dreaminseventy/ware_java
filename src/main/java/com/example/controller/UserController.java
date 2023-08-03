@@ -35,9 +35,9 @@ public class UserController {
     }
 
     //修改
-    @PutMapping("update")
-    public boolean update(@RequestBody User user){
-        return userService.updateById(user);
+    @PutMapping("/update")
+    public Result update(@RequestBody User user){
+        return userService.updateById(user)?Result.success():Result.fail();
     }
 
     //新增或修改
@@ -48,8 +48,8 @@ public class UserController {
 
     //删除
     @DeleteMapping("/delete")
-    public boolean delete(Integer id){
-        return userService.removeById(id);
+    public Result delete(Integer id){
+        return userService.removeById(id)?Result.success():Result.fail();
     }
 
     //通过账号来查询
