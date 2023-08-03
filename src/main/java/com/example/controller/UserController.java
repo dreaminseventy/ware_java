@@ -51,6 +51,13 @@ public class UserController {
         return userService.removeById(id);
     }
 
+    //通过账号来查询
+
+    @GetMapping("/findByAccount")
+    public Result findByAccount(@RequestParam String account){
+       List<User> list =  userService.lambdaQuery().eq(User::getAccount,account).list();
+       return list.size()>0?Result.success(list):Result.fail();
+    }
 
     //查询（模糊匹配）
     @PostMapping("listAll")
