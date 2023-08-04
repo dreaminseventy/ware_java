@@ -11,6 +11,6 @@ import com.example.pojo.Menu;
  * @author jobob
  * @since 2023-08-04
  */
-public interface IMenuService extends IService<Menu> {
+public interface MenuService extends IService<Menu> {
 
 }
