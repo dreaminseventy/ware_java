@@ -78,7 +78,7 @@ public class UserController {
         return Result.success(userService.list(lambdaQueryWrapper));
     }
 
-    //分页按需查询(只包含account，sex，name)
+    //分页按需查询(包含account，sex，name,还有roleId)
     @PostMapping("/list1")
     public Result list1(@RequestBody SelectBean selectBean){
         PageBean pageBean = userService.listSome(selectBean);
@@ -88,8 +88,9 @@ public class UserController {
 
     //分页查询
     @GetMapping("/page")
-    public Result page(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "5") Integer pageSize){
-        PageBean pageBean =  userService.dividePage(pageNum,pageSize);;
+    public Result page(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "5") Integer pageSize,
+                       @RequestParam Integer roleId){
+        PageBean pageBean =  userService.dividePage(pageNum,pageSize,roleId);;
         return Result.success(pageBean.getTotal(),pageBean.getRows());
     }
 }

@@ -16,6 +16,9 @@
             <if test="sex!=null and sex!=0">
                 and sex=#{sex}
             </if>
+            <if test="roleId!=null">
+                and role_id=#{roleId}
+            </if>
         </where>
         order by id
     </select>

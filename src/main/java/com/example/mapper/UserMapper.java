@@ -15,6 +15,8 @@ public interface UserMapper extends BaseMapper<User> {
     List<User> listSome(SelectBean selectBean);
 
     //分页查询
-    @Select("select * from user")
-    List<User> list();
+    @Select("select * from warehouse.user where role_id=#{roleId}")
+    List<User> list(Integer roleId);
+
+
 }

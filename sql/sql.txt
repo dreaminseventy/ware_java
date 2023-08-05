@@ -1,0 +1,32 @@
+create table  storage
+           (
+               id int not null auto_increment primary key comment '主键',
+               name varchar(100) not null comment '仓库名',
+               remark varchar(1000) null comment '备注'
+           )engine=InnoDB auto_increment=10 charset=utf8
+
+create table  user
+(
+    id int not null auto_increment primary key comment '主键',
+    account varchar(30) null,
+    name varchar(20) null,
+    password varchar(30) null,
+    age int null,
+    sex int null comment '1男 2女 3购物袋',
+    phone varchar(20) null ,
+    role_id int comment '0用户，1管理，2超级管理',
+    is_valid varchar(4) default 'Y' comment '是否启用，默认’Y‘启用'
+)engine=InnoDB auto_increment=10 charset=utf8
+
+create table  menu
+(
+    id int not null auto_increment primary key comment '主键',
+    menuCode varchar(10) comment '编号',
+    menuName    varchar(40) comment '名字',
+    menuLevel varchar(4) comment '等级',
+    menuParentCode varchar(15) comment '父路由编号',
+    menuClick varchar(16) ,
+    menuRight varchar(8),
+    menuComponent varchar(200),
+    menuIcon varchar(100)
+)engine=InnoDB auto_increment=10 charset=utf8

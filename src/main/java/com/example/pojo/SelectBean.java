@@ -14,4 +14,5 @@ public class SelectBean {
     private int pageSize=page_Size;
     private int sex;
     private String account;
+    private int roleId;
 }
