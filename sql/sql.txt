@@ -3,7 +3,7 @@ create table  storage
                id int not null auto_increment primary key comment '主键',
                name varchar(100) not null comment '仓库名',
                remark varchar(1000) null comment '备注'
-           )engine=InnoDB auto_increment=10 charset=utf8
+           )engine=InnoDB auto_increment=10 charset=utf8;
 
 create table  user
 (
@@ -16,7 +16,7 @@ create table  user
     phone varchar(20) null ,
     role_id int comment '0用户，1管理，2超级管理',
     is_valid varchar(4) default 'Y' comment '是否启用，默认’Y‘启用'
-)engine=InnoDB auto_increment=10 charset=utf8
+)engine=InnoDB auto_increment=10 charset=utf8;
 
 create table  menu
 (
@@ -29,4 +29,21 @@ create table  menu
     menuRight varchar(8),
     menuComponent varchar(200),
     menuIcon varchar(100)
-)engine=InnoDB auto_increment=10 charset=utf8
+)engine=InnoDB auto_increment=10 charset=utf8;
+
+create table goodsType
+    (
+        id int not null primary key ,
+        name varchar(100) not null comment '分类名',
+        remark varchar(1000) null comment '备注'
+)engine=InnoDB auto_increment=10 charset=utf8;
+insert into goodstype(name)
+values ('生活用品'),
+       ('医疗用品'),
+       ('电子用品'),
+       ('厨房用品'),
+       ('厕所用品'),
+       ('商务用品'),
+       ('1用品'),
+       ('2用品'),
+       ('3用品')

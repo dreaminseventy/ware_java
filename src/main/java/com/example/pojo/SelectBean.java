@@ -15,4 +15,6 @@ public class SelectBean {
     private int sex;
     private String account;
     private int roleId;
+    private String storage;
+    private String goodstype;
 }
