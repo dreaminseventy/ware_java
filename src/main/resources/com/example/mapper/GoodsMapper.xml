@@ -17,21 +17,4 @@
         </where>
         order by id
     </select>
-
-    <select id="find" resultType="com.example.pojo.Goods">
-        select *
-        from warehouse.goods
-        <where>
-            <if test="name!=null and name!='' ">
-                name like concat('%',#{name},'%')
-            </if>
-            <if test="storage!=null and storage!=''">
-                and storage like concat('%',#{storage},'%')
-            </if>
-            <if test="goodstype!=null and goodstype!=''">
-               and goodstype like concat('%',#{goodstype},'%')
-            </if>
-        </where>
-        order by id
-    </select>
 </mapper>

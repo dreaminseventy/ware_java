@@ -53,11 +53,19 @@ public class UserController {
     }
 
     //通过账号来查询
+    @GetMapping("/findByName")
+    public Result findByName(@RequestParam String name){
+       List<User> list =  userService.lambdaQuery().eq(User::getName,name).list();
+       return list.size()>0?Result.success(list.get(0)):Result.fail();
+    }
+
+    //通过账号来查询
     @GetMapping("/findByAccount")
     public Result findByAccount(@RequestParam String account){
-       List<User> list =  userService.lambdaQuery().eq(User::getAccount,account).list();
-       return list.size()>0?Result.success(list):Result.fail();
+        List<User> list =  userService.lambdaQuery().eq(User::getAccount,account).list();
+        return list.size()>0?Result.success(list):Result.fail();
     }
+
 
     //登录
     @PostMapping("/login")

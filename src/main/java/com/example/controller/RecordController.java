@@ -1,12 +1,12 @@
 package com.example.controller;
 
 
-import com.example.pojo.PageBean;
-import com.example.pojo.Result;
-import com.example.pojo.SelectBean;
+import com.example.pojo.*;
 import com.example.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -35,6 +35,20 @@ public class RecordController {
     public Result page(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "5") Integer pageSize){
         PageBean pageBean = recordService.dividePage(pageNum,pageSize);;
         return Result.success(pageBean.getTotal(),pageBean.getRows());
+    }
+
+    //添加记录
+    //新增
+    @PostMapping("/save")
+    public Result save(@RequestBody GoodsManage goodsManage){
+        Record record = new Record();
+        record.setName(goodsManage.getName());
+        record.setAdminid(goodsManage.getAdminid());
+        record.setUserid(goodsManage.getUserid());
+        record.setCount(goodsManage.getCount());
+        record.setRemark(goodsManage.getRemark());
+        record.setCreatetime(LocalDateTime.now());
+        return recordService.save(record)?Result.success():Result.fail();
     }
 
 }

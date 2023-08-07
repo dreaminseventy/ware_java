@@ -7,6 +7,7 @@ import com.example.service.GoodstypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -41,14 +42,13 @@ public class GoodsController {
         return goodsService.removeById(id)?Result.success():Result.fail();
     }
 
-    //通过账号来查询
+    //通过名字来查询
     @GetMapping("/findByName")
-    public Result findByAccount(@RequestParam String name){
+    public Result findByName(@RequestParam String name){
         List<Goods> list =  goodsService.lambdaQuery().eq(
                 Goods::getName,name).list();
         return list.size()>0?Result.success(list):Result.fail();
     }
-
 
     //分页按需查询(包含account，sex，name,还有roleId)
     @PostMapping("/list1")
@@ -57,13 +57,6 @@ public class GoodsController {
         goodsService.listSome(selectBean);
         return Result.success(pageBean.getTotal(),pageBean.getRows());
     }
-    @GetMapping("/find")
-    public Result find(@RequestParam String name,@RequestParam String storage,@RequestParam String goodstype){
-        System.out.println(name+storage+goodstype);
-       List<Goods> goodsList = goodsService.find(name,storage,goodstype);
-        return Result.success(goodsList);
-    }
-
 
     //分页查询
     @GetMapping("/page")
@@ -71,4 +64,27 @@ public class GoodsController {
         PageBean pageBean =  goodsService.dividePage(pageNum,pageSize);;
         return Result.success(pageBean.getTotal(),pageBean.getRows());
     }
+
+    //入库
+    @PostMapping("/storage")
+    public Result inStorage(@RequestBody GoodsManage goodsManage){
+        Goods goods = goodsService.getById(goodsManage.getId());
+        System.out.println(goods);
+        int oldCount = goods.getCount();
+        int newCount;
+        if (goodsManage.getManage()==1){
+            newCount = oldCount + goodsManage.getCount();
+            goods.setCount(newCount);
+        }
+        else{
+            newCount = oldCount - goodsManage.getCount();
+            if (newCount<0){
+                return Result.fail(goods);
+            }
+            goods.setCount(newCount);
+        }
+        goodsService.updateById(goods);
+        return Result.success(goods);
+    }
+
 }

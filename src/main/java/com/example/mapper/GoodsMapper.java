@@ -23,6 +23,4 @@ public interface GoodsMapper extends BaseMapper<Goods> {
     List<Goods> list();
 
     List<Goods> listSome(SelectBean selectBean);
-
-    List<Goods> find(String name,String storage,String goodstype);
 }

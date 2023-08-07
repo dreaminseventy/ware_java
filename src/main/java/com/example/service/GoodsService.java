@@ -21,5 +21,4 @@ public interface GoodsService extends IService<Goods> {
 
     PageBean dividePage(Integer pageNum, Integer pageSize);
 
-    List<Goods> find(String name, String storage, String goodstype);
 }

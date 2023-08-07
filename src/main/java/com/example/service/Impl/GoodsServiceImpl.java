@@ -45,8 +45,4 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
         return new PageBean(p.getTotal(),p.getResult());
     }
 
-    @Override
-    public List<Goods> find(String name, String storage, String goodstype) {
-        return goodsMapper.find(name,storage,goodstype);
-    }
 }
