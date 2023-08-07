@@ -11,4 +11,6 @@ public interface UserService extends IService<User> {
     PageBean listSome(SelectBean selectBean);
     //分页查询
     PageBean dividePage(Integer pageNum, Integer pageSize,Integer roleId);
+
+    PageBean dividePage2(Integer pageNum, Integer pageSize);
 }

@@ -35,6 +35,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         Page<User> p = (Page<User>) userList;
         return new PageBean(p.getTotal(),p.getResult());
     }
+
+    @Override
+    public PageBean dividePage2(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+
+        List<User> userList =userMapper.list2();
+        Page<User> p = (Page<User>) userList;
+        return new PageBean(p.getTotal(),p.getResult());
+    }
     //分页查询
 
 }

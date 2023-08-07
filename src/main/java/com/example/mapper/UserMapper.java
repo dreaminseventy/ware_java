@@ -19,4 +19,6 @@ public interface UserMapper extends BaseMapper<User> {
     List<User> list(Integer roleId);
 
 
+    @Select("select * from warehouse.user")
+    List<User> list2();
 }

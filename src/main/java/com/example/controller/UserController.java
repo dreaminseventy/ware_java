@@ -101,4 +101,11 @@ public class UserController {
         PageBean pageBean =  userService.dividePage(pageNum,pageSize,roleId);;
         return Result.success(pageBean.getTotal(),pageBean.getRows());
     }
+
+    //分页查询
+    @GetMapping("/page2")
+    public Result page2(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "5") Integer pageSize){
+        PageBean pageBean =  userService.dividePage2(pageNum,pageSize);;
+        return Result.success(pageBean.getTotal(),pageBean.getRows());
+    }
 }
