@@ -47,3 +47,15 @@ values ('生活用品'),
        ('1用品'),
        ('2用品'),
        ('3用品')
+create table record
+(
+    id int not null auto_increment primary key comment '主键',
+    goods varchar(40) not null comment '货品名',
+    userId int default null comment '取货人/补货人',
+    adminId int default  null comment '操作人id',
+    count int default null comment '数量',
+    createTime datetime default  null comment '操作时间',
+    remark varchar(1000) default null comment '备注'
+)engine = InnoDB auto_increment=1 default  charset =utf8;
+
+
