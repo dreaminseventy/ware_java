@@ -34,10 +34,17 @@ public class RecordServiceImpl extends ServiceImpl<RecordMapper, Record> impleme
     }
 
     @Override
-    public PageBean dividePage(Integer pageNum, Integer pageSize) {
+    public PageBean dividePage(Integer pageNum, Integer pageSize,Integer roleId,Integer userId) {
         PageHelper.startPage(pageNum,pageSize);
-        List<RecordResult> userList =recordMapper.list();
-        Page<RecordResult> p = (Page<RecordResult>) userList;
-        return new PageBean(p.getTotal(),p.getResult());
+        if (roleId!=0){
+            List<RecordResult> userList =recordMapper.list();
+            Page<RecordResult> p = (Page<RecordResult>) userList;
+            return new PageBean(p.getTotal(),p.getResult());
+        }else {
+            List<RecordResult> userList =recordMapper.list(userId);
+            Page<RecordResult> p = (Page<RecordResult>) userList;
+            return new PageBean(p.getTotal(),p.getResult());
+        }
+
     }
 }

@@ -25,15 +25,17 @@ public class RecordController {
 
     //分页按需查询(包含account，sex，name,还有roleId)
     @PostMapping("/list1")
-    public Result list1(@RequestBody SelectBean selectBean){
+    public Result list1(@RequestBody RecordSelectBean selectBean){
         PageBean pageBean = recordService.listSome(selectBean);
         return Result.success(pageBean.getTotal(),pageBean.getRows());
     }
 
     //分页查询
     @GetMapping("/page")
-    public Result page(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "5") Integer pageSize){
-        PageBean pageBean = recordService.dividePage(pageNum,pageSize);;
+    public Result page(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "5") Integer pageSize,
+                        @RequestParam Integer roleId,@RequestParam Integer userId
+    ){
+        PageBean pageBean = recordService.dividePage(pageNum,pageSize,roleId,userId);;
         return Result.success(pageBean.getTotal(),pageBean.getRows());
     }
 

@@ -22,6 +22,7 @@ import java.util.List;
 public interface RecordMapper extends BaseMapper<Record> {
 
 
+    List<RecordResult> list(Integer userId);
     List<RecordResult> list();
 
 

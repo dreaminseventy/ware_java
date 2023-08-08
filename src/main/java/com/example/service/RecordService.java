@@ -17,5 +17,5 @@ public interface RecordService extends IService<Record> {
 
     PageBean listSome(SelectBean selectBean);
 
-    PageBean dividePage(Integer pageNum, Integer pageSize);
+    PageBean dividePage(Integer pageNum, Integer pageSize,Integer roleId,Integer userId);
 }
