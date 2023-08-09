@@ -2,6 +2,8 @@ package com.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.pojo.Apply;
+import com.example.pojo.PageBean;
+import com.example.pojo.RecordSelectBean;
 
 /**
  * <p>
@@ -13,4 +15,7 @@ import com.example.pojo.Apply;
  */
 public interface ApplyService extends IService<Apply> {
 
+    PageBean dividePage(Integer pageNum, Integer pageSize);
+
+    PageBean listSome(RecordSelectBean selectBean);
 }

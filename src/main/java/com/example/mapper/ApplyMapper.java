@@ -2,7 +2,12 @@ package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.pojo.Apply;
+import com.example.pojo.Goods;
+import com.example.pojo.RecordSelectBean;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,4 +21,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ApplyMapper extends BaseMapper<Apply> {
 
+    List<Apply> list();
+
+    List<Goods> listSome(RecordSelectBean selectBean);
 }

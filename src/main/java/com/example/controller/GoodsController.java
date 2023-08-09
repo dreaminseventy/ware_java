@@ -53,8 +53,7 @@ public class GoodsController {
     //分页按需查询(包含account，sex，name,还有roleId)
     @PostMapping("/list1")
     public Result list1(@RequestBody RecordSelectBean selectBean){
-        PageBean pageBean =
-        goodsService.listSome(selectBean);
+        PageBean pageBean = goodsService.listSome(selectBean);
         return Result.success(pageBean.getTotal(),pageBean.getRows());
     }
 
