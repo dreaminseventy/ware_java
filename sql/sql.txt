@@ -55,6 +55,7 @@ create table record
     adminId int default  null comment '操作人id',
     count int default null comment '数量',
     createTime datetime default  null comment '操作时间',
+    manage int not null comment '入库/出库 1入库，2出库',
     remark varchar(1000) default null comment '备注'
 )engine = InnoDB auto_increment=1 default  charset =utf8;
 create table apply
@@ -64,7 +65,7 @@ create table apply
     userId int default null comment '申请人',
     count int default null comment '数量',
     createTime datetime default  null comment '操作时间',
-    manage int not null comment'入库/出库 1入库，2出库',
+    manage int not null comment '入库/出库 1入库，2出库',
     remark varchar(1000) default null comment '备注'
 )engine = InnoDB auto_increment=1 default  charset =utf8;
 

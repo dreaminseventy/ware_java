@@ -49,6 +49,7 @@ public class RecordController {
         record.setUserid(goodsManage.getUserid());
         record.setCount(goodsManage.getCount());
         record.setRemark(goodsManage.getRemark());
+        record.setManage(goodsManage.getManage());
         record.setCreatetime(LocalDateTime.now());
         return recordService.save(record)?Result.success():Result.fail();
     }

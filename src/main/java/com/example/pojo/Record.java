@@ -58,6 +58,11 @@ public class Record implements Serializable {
     private LocalDateTime createtime;
 
     /**
+     * 入库出库操作 1入库，2出库
+     */
+    private Integer manage;
+
+    /**
      * 备注
      */
     private String remark;

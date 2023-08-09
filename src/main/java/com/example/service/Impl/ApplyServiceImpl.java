@@ -2,10 +2,7 @@ package com.example.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.mapper.ApplyMapper;
-import com.example.pojo.Apply;
-import com.example.pojo.Goods;
-import com.example.pojo.PageBean;
-import com.example.pojo.RecordSelectBean;
+import com.example.pojo.*;
 import com.example.service.ApplyService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -31,16 +28,16 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
     public PageBean dividePage(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum,pageSize);
 
-        List<Apply> userList =applyMapper.list();
-        Page<Apply> p = (Page<Apply>) userList;
+        List<RecordResult> userList =applyMapper.list();
+        Page<RecordResult> p = (Page<RecordResult>) userList;
         return new PageBean(p.getTotal(),p.getResult());
     }
 
     @Override
     public PageBean listSome(RecordSelectBean selectBean) {
         PageHelper.startPage(selectBean.getPageNum(),selectBean.getPageSize());
-        List<Goods> list = applyMapper.listSome(selectBean);
-        Page<Goods> p = (Page<Goods>) list;
+        List<RecordResult> list = applyMapper.listSome(selectBean);
+        Page<RecordResult> p = (Page<RecordResult>) list;
         return new PageBean(p.getTotal(),p.getResult());
     }
 }

@@ -22,14 +22,14 @@ public class ApplyController {
 
     @Autowired
     private ApplyService applyService;
-    //分页查询
+    //分页查询pageBean中封装的是RecordResult类
     @GetMapping("/page")
     public Result page(@RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "5") Integer pageSize){
         PageBean pageBean =  applyService.dividePage(pageNum,pageSize);;
         return Result.success(pageBean.getTotal(),pageBean.getRows());
     }
 
-    //分页按需查询(包含account，sex，name,还有roleId)
+    //分页按需查询(包含account，sex，name,还有roleId)pageBean中封装的是RecordResult类
     @PostMapping("/list1")
     public Result list1(@RequestBody RecordSelectBean selectBean){
         PageBean pageBean = applyService.listSome(selectBean);
