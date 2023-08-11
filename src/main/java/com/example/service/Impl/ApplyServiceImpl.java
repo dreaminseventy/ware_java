@@ -25,7 +25,7 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
     @Autowired
     private ApplyMapper applyMapper;
     @Override
-    public PageBean dividePage(Integer pageNum, Integer pageSize) {
+    public PageBean dividePage(Integer pageNum, Integer pageSize,Integer roleId,Integer userId) {
         PageHelper.startPage(pageNum,pageSize);
 
         List<RecordResult> userList =applyMapper.list();

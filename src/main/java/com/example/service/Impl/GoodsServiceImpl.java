@@ -45,4 +45,9 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
         return new PageBean(p.getTotal(),p.getResult());
     }
 
+    @Override
+    public Goods getByName(String name) {
+        return goodsMapper.selectByName(name);
+    }
+
 }

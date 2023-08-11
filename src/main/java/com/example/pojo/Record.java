@@ -58,7 +58,7 @@ public class Record implements Serializable {
     private LocalDateTime createtime;
 
     /**
-     * 入库出库操作 1入库，2出库
+     * 入库出库操作 1入库，2出库,3驳回
      */
     private Integer manage;
 

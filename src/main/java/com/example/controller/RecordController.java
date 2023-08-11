@@ -33,8 +33,8 @@ public class RecordController {
     //分页查询
     @GetMapping("/page")
     public Result page(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "5") Integer pageSize,
-                        @RequestParam Integer roleId,@RequestParam Integer userId
-    ){
+                        @RequestParam Integer roleId,@RequestParam Integer userId)
+    {
         PageBean pageBean = recordService.dividePage(pageNum,pageSize,roleId,userId);;
         return Result.success(pageBean.getTotal(),pageBean.getRows());
     }

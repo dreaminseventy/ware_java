@@ -15,7 +15,7 @@ import com.example.pojo.RecordSelectBean;
  */
 public interface ApplyService extends IService<Apply> {
 
-    PageBean dividePage(Integer pageNum, Integer pageSize);
+    PageBean dividePage(Integer pageNum, Integer pageSize,Integer roleId,Integer userId);
 
     PageBean listSome(RecordSelectBean selectBean);
 }

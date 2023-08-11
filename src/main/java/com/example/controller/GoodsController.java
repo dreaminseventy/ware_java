@@ -69,6 +69,16 @@ public class GoodsController {
     public Result inStorage(@RequestBody GoodsManage goodsManage){
         Goods goods = goodsService.getById(goodsManage.getId());
         System.out.println(goods);
+        return getResult(goodsManage, goods);
+    }
+    //申请入库
+    @PostMapping("/applystorage")
+    public Result applyStorage(@RequestBody GoodsManage goodsManage){
+        Goods goods = goodsService.getByName(goodsManage.getName());
+        return getResult(goodsManage, goods);
+    }
+
+    private Result getResult(@RequestBody GoodsManage goodsManage, Goods goods) {
         int oldCount = goods.getCount();
         int newCount;
         if (goodsManage.getManage()==1){
@@ -85,5 +95,6 @@ public class GoodsController {
         goodsService.updateById(goods);
         return Result.success(goods);
     }
+
 
 }

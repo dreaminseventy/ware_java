@@ -3,8 +3,10 @@ package com.example.pojo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -32,7 +34,7 @@ public class Apply implements Serializable {
     /**
      * 货品名
      */
-    private String goods;
+    private String name;
 
     /**
      * 申请人
@@ -50,6 +52,11 @@ public class Apply implements Serializable {
      */
     @TableField("createTime")
     private LocalDateTime createtime;
+
+    /**
+     * 入库出库操作 1入库，2出库
+     */
+    private Integer manage;
 
     /**
      * 备注

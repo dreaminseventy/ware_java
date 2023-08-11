@@ -23,4 +23,7 @@ public interface GoodsMapper extends BaseMapper<Goods> {
     List<Goods> list();
 
     List<Goods> listSome(SelectBean selectBean);
+
+    @Select("select * from warehouse.goods where name=#{name}")
+    Goods selectByName(String name);
 }
